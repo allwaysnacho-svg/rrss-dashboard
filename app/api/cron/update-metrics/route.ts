@@ -32,7 +32,12 @@ export async function GET(request: Request) {
 
     return NextResponse.json({ success: true, updated: profiles.length });
 
+// ... resto del código arriba ...
   } catch (error) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    console.error(error);
+    return NextResponse.json({ 
+      success: false, 
+      error: "Error al actualizar métricas" 
+    }, { status: 500 });
   }
 }
